@@ -42,7 +42,14 @@ const themeScript = `
     <meta name="description" content={description} />
     <meta name="author" content={author} />
     <meta name="viewport" content="width=device-width" />
+
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Myscrie" />
+    <link rel="manifest" href="/site.webmanifest" />
+
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
 
@@ -61,7 +68,7 @@ const themeScript = `
   </head>
   <body>
     <Header siteName={siteName} siteLogo={siteLogo} navLinks={navLinks} />
-    <main class="mx-auto max-w-3xl px-5 space-y-20 md:space-y-24 lg:space-y-32">
+    <main class="mx-auto max-w-7xl px-5 space-y-20 md:space-y-24 lg:space-y-32">
       <slot />
     </main>
     <Footer author={author} socialLinks={socialLinks} />

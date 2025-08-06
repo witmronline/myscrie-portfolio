@@ -2,32 +2,55 @@
 import type { HeroProps } from "@types";
 type Props = HeroProps;
 
+import { background } from "src/styles/presets";
+
 const { name, specialty, summary, email } = Astro.props;
 ---
 
-<section id="hero" class="bg-base-100 pt-20">
-  <h1
-    class="mb-4 font-serif text-6xl font-bold tracking-tight text-base-content sm:text-7xl md:text-8xl"
+<section
+  id="hero"
+  class:list={[
+    "bg-base-200 mt-8 px-4 md:px-8 lg:px-16 py-20 rounded-box",
+    background.card,
+  ]}
+>
+  <div
+    class="mx-auto max-w-7xl flex flex-col-reverse md:flex-row items-center gap-12"
   >
-    {name}
-  </h1>
+    <!-- Text Column -->
+    <div class="text-center md:text-left md:flex-1">
+      <h1
+        class="mb-4 font-serif text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-base-content"
+      >
+        {name}
+      </h1>
+      <p
+        class="mb-6 font-serif text-2xl sm:text-3xl md:text-4xl font-semibold text-primary tracking-tight leading-snug"
+      >
+        {specialty}
+      </p>
+      <p
+        class="mb-10 max-w-2xl text-base md:text-lg font-normal leading-relaxed text-base-content/70"
+      >
+        {summary}
+      </p>
+      <a
+        href={`mailto:${email}`}
+        class="inline-block rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-content shadow-lg hover:brightness-110 hover:shadow-xl transition-all duration-200 active:scale-[0.98]"
+      >
+        Get in Touch
+      </a>
+    </div>
 
-  <p
-    class="mb-6 font-serif text-3xl font-semibold leading-snug tracking-tight text-primary sm:text-4xl md:text-5xl"
-  >
-    {specialty}
-  </p>
-
-  <p
-    class="mb-12 max-w-2xl text-base font-normal leading-relaxed text-base-content/70 md:text-lg"
-  >
-    {summary}
-  </p>
-
-  <a
-    href={`mailto:${email}`}
-    class="inline-block rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-content shadow-md transition-all hover:brightness-110 hover:shadow-lg active:scale-[0.98]"
-  >
-    Get in Touch
-  </a>
+    <!-- Image Column -->
+    <div class="md:flex-1 flex justify-center">
+      <img
+        src="/og/og-image.png"
+        alt="Myscrie banner"
+        class="w-full max-w-md md:max-w-lg rounded-3xl shadow-2xl ring-1 ring-primary/20"
+        loading="eager"
+        decoding="async"
+      />
+    </div>
+  </div>
 </section>

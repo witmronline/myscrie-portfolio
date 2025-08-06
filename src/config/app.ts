@@ -11,7 +11,7 @@ export const siteConfig: SiteConfig = {
     dark: "myscrie-dark",
     light: "myscrie-light",
   },
-  siteLogo: "", // update image later
+  siteLogo: "/favicon.svg", // update image later
   navLinks: [
     { text: "Experience", href: "#experience" },
     { text: "Myscrie Anime", href: "#myscrie-anime" },
@@ -24,6 +24,6 @@ export const siteConfig: SiteConfig = {
     { text: "Instagram", href: "https://instagram.com/witAuria" },
     { text: "Email", href: "mailto:witauria@gmail.com" },
   ],
-  socialImage: "/og-image.png",
+  socialImage: "/og/og-image.png",
   canonicalURL: "https://myscrie.netlify.app",
 };

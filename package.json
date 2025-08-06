@@ -14,9 +14,13 @@
     "@fontsource-variable/gabarito": "^5.1.0",
     "@fontsource/be-vietnam-pro": "^5.1.0",
     "@tailwindcss/vite": "^4.1.10",
-    "astro": "^5.10.1",
+    "astro": "file:../../../Documents/onlilearn/node_modules/astro",
+    "daisyui": "^5.0.46",
+    "esbuild": "file:../../../Documents/onlilearn/node_modules/esbuild",
+    "kleur": "file:../../../Documents/onlilearn/node_modules/kleur",
     "tailwindcss": "^4.1.10",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.2",
+    "vite": "file:../../../Documents/onlilearn/node_modules/vite"
   },
   "devDependencies": {
     "prettier": "^3.5.3",

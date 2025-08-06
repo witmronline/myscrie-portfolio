@@ -1,6 +1,8 @@
 export interface SiteConfig extends HeaderProps {
   title: string;
+  siteName: string;
   description: string;
+  theme: any;
   lang: string;
   author: string;
   socialLinks: { text: string; href: string }[];
@@ -11,7 +13,6 @@ export interface SiteConfig extends HeaderProps {
 export interface SiteContent {
   hero: HeroProps;
   experience: ExperienceProps[];
-  projects: ProjectProps[];
   about: AboutProps;
 }
 
@@ -30,7 +31,7 @@ export interface ExperienceProps {
   summary: string | string[];
 }
 
-export interface ProjectProps {
+export interface ScriptsProps {
   name: string;
   summary: string;
   image: string;
@@ -44,6 +45,7 @@ export interface AboutProps {
 }
 
 export interface HeaderProps {
+  siteName?: string;
   siteLogo: string;
   navLinks: { text: string; href: string }[];
 }

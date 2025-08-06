@@ -1,0 +1,16 @@
+---
+const { email } = Astro.props;
+---
+
+<section id="contact" class="pt-12 pb-40 text-center">
+  <p class="mb-4 text-sm tracking-wide text-base-content/70">
+    I'm always open to collaborations, voiceover scripts, or just a quick hello.
+  </p>
+
+  <a
+    href={`mailto:${email}`}
+    class="inline-block rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-content shadow-md transition-all hover:brightness-110 hover:shadow-lg active:scale-[0.98]"
+  >
+    Let’s Connect
+  </a>
+</section>

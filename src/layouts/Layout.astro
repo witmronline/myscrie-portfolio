@@ -1,27 +1,42 @@
 ---
+import "../styles/css/_global.css";
+
+import { siteConfig } from "../config";
+
 import Header from "@components/Header.astro";
-import "@fontsource/be-vietnam-pro";
-import "@fontsource-variable/gabarito";
-import { SITE_CONFIG } from "@config";
 import Footer from "@components/Footer.astro";
 
 const {
   title,
+  siteName,
   description,
   siteLogo,
   navLinks,
+  theme,
   lang,
   author,
   socialLinks,
   socialImage,
   canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
-} = SITE_CONFIG;
+} = siteConfig;
 
 const ogImgUrl = canonicalURL + socialImage;
+
+const { light: lightTheme, dark: darkTheme } = siteConfig.theme;
+
+// 🌙 Prevent FOUC and set theme early
+const themeScript = `
+(function () {
+  const theme = localStorage.getItem("theme");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const isDark = theme === "${darkTheme}" || (!theme && prefersDark);
+  document.documentElement.setAttribute("data-theme", isDark ? "${darkTheme}" : "${lightTheme}");
+})();
+`;
 ---
 
 <!doctype html>
-<html lang={lang} class="scroll-pt-16 scroll-smooth">
+<html data-theme={theme.light} lang={lang} class="scroll-pt-16 scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -37,14 +52,16 @@ const ogImgUrl = canonicalURL + socialImage;
     <meta property="og:image" content={ogImgUrl} />
 
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
     <meta property="twitter:title" content={title} />
+    <meta property="twitter:url" content={canonicalURL} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={ogImgUrl} />
+    <script is:inline set:html={themeScript} />
+    <link rel="stylesheet" href="/css/fonts-final.css" />
   </head>
-  <body class="bg-black font-sans">
-    <Header siteLogo={siteLogo} navLinks={navLinks} />
-    <main class="mx-auto max-w-3xl px-5">
+  <body>
+    <Header siteName={siteName} siteLogo={siteLogo} navLinks={navLinks} />
+    <main class="mx-auto max-w-3xl px-5 space-y-20 md:space-y-24 lg:space-y-32">
       <slot />
     </main>
     <Footer author={author} socialLinks={socialLinks} />

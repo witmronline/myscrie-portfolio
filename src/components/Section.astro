@@ -1,15 +1,25 @@
 ---
+import { slugify } from "src/utils/slugify";
+
 interface Props {
   text: string;
+  textAling?: "start" | "center" | "end"; // made optional
   href: string;
 }
 
-const { text, href } = Astro.props;
+const { text, textAling = "start", href } = Astro.props;
 ---
 
-<section id={href} class="py-24">
+<section id={slugify(href)} class="scroll-mt-20">
   <h2
-    class="mb-14 font-serif text-4xl font-bold tracking-tighter text-white md:text-5xl"
+    class={[
+      "mb-10 text-3xl font-bold tracking-tight text-base-content md:text-4xl",
+      textAling === "center" && "text-center",
+      textAling === "end" && "text-end",
+      textAling === "start" && "text-start",
+    ]
+      .filter(Boolean)
+      .join(" ")}
   >
     {text}
   </h2>

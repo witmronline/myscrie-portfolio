@@ -1,17 +1,32 @@
 ---
-import { SITE_CONTENT } from "@config";
 import Hero from "@components/Hero.astro";
 import Layout from "@layouts/Layout.astro";
-import Experience from "@components/Experience.astro";
-import Projects from "@components/Projects.astro";
 import About from "@components/About.astro";
+import Projects from "@components/Projects.astro";
+import Experience from "@components/Experience.astro";
+import ContactSection from "@components/ContactSection.astro";
 
-import "../styles/global.css";
+import { about, hero, scripts, experience } from "../config";
 ---
 
 <Layout>
-  <Hero {...SITE_CONTENT.hero} />
-  <Experience experience={SITE_CONTENT.experience} />
-  <Projects projects={SITE_CONTENT.projects} />
-  <About {...SITE_CONTENT.about} name={SITE_CONTENT.hero.name} />
+  <Hero {...hero} />
+
+  <Experience {experience} />
+
+  <Projects
+    idx="myscrie-anime"
+    scripts={scripts.anime}
+    title="Myscrie Anime Scripts"
+  />
+
+  <Projects
+    idx="myscrie-science"
+    scripts={scripts.science}
+    title="Myscrie Science Scripts"
+  />
+
+  <About {...about} name={hero.name} />
+
+  <ContactSection {...hero} />
 </Layout>

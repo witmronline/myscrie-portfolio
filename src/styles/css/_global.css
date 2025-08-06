@@ -1,0 +1,124 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@plugin "daisyui/theme" {
+  name: "myscrie-light";
+  default: true;
+  prefersdark: false;
+  color-scheme: "light";
+
+  --color-base-100: #e2dfd2;
+  --color-base-200: #f3f1eb;
+  --color-base-300: #eae7df;
+  --color-base-content: oklch(24% 0.01 260);
+
+  --color-primary: #4f46e5;
+  --color-primary-content: oklch(97% 0.01 245);
+
+  --color-secondary: #0891b2;
+  --color-secondary-content: oklch(97% 0.01 240);
+
+  --color-accent: #facc15;
+  --color-accent-content: oklch(15% 0.02 60);
+
+  --color-neutral: oklch(94% 0.008 270);
+  --color-neutral-content: oklch(22% 0.01 270);
+
+  --color-info: oklch(74% 0.16 232);
+  --color-info-content: oklch(28% 0.07 243);
+
+  --color-success: oklch(75% 0.17 160);
+  --color-success-content: oklch(35% 0.07 165);
+
+  --color-warning: oklch(83% 0.18 84);
+  --color-warning-content: oklch(42% 0.11 45);
+
+  --color-error: oklch(71% 0.20 14);
+  --color-error-content: oklch(27% 0.10 12);
+
+    --shadow-card: 0 4px 16px oklch(0% 0 0 / 0.15);
+  --glass-bg: oklch(21% 0.01 240 / 0.2);
+  --glass-blur: blur(8px);
+
+
+  --radius-selector: 1rem;
+  --radius-field: 2rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@plugin "daisyui/theme" {
+  name: "myscrie-dark";
+  default: false;
+  prefersdark: false;
+  color-scheme: "dark";
+
+  --color-base-100: oklch(21% 0.008 18);
+  --color-base-200: oklch(18.5% 0.007 18);
+  --color-base-300: oklch(16% 0.007 18);
+  --color-base-content: oklch(85% 0.005 18);
+
+  --color-primary: #4f46e5;
+  --color-primary-content: oklch(94% 0.01 250);
+
+  --color-secondary: #0891b2;
+  --color-secondary-content: oklch(93% 0.01 240);
+
+  --color-accent: #facc15;
+  --color-accent-content: oklch(86% 0.015 80);
+
+  --color-neutral: oklch(13% 0.007 270);
+  --color-neutral-content: oklch(91% 0.008 270);
+
+  --color-info: oklch(72% 0.19 232);
+  --color-info-content: oklch(12% 0.02 230);
+
+  --color-success: oklch(65% 0.15 160);
+  --color-success-content: oklch(12% 0.02 160);
+
+  --color-warning: oklch(84.7% 0.20 84);
+  --color-warning-content: oklch(15% 0.03 70);
+
+  --color-error: oklch(71.5% 0.22 22);
+  --color-error-content: oklch(13% 0.02 22);
+
+    --shadow-card: 0 4px 16px oklch(0% 0 0 / 0.15);
+  --glass-bg: oklch(21% 0.01 240 / 0.2);
+  --glass-blur: blur(8px);
+
+  --radius-selector: 1rem;
+  --radius-field: 2rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+
+/* ✅ Then you can write custom logic */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
+
+  --animate-slide-in: slide-in 600ms ease both;
+
+  @keyframes slide-in {
+    10% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+} */
+
+.no-select * {
+  user-select: none !important;
+}
+

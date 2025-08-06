@@ -13,6 +13,20 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# temporary files
+*.tmp
+*.temp  
+
+# coverage reports
+coverage/
+
+# build artifacts
+build/  
+
+# lock files
+package-lock.json   
+
+
 # environment variables
 .env
 .env.production
